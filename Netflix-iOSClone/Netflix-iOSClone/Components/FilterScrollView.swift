@@ -8,10 +8,13 @@
 import SwiftUI
 
 struct FilterScrollView: View {
-    @State var selectedFilter: FilterModel? = nil
+    var selectedFilter: FilterModel? = nil
     
     // TODO: Dynamically load array from backend
     var filters: [FilterModel] = FilterModel.sampleArray
+    
+    var onPressXMark: (() -> Void)? = nil
+    var onSelectFilter: ((FilterModel) -> Void)? = nil
     
     var body: some View {
         ScrollView(.horizontal) {
@@ -25,8 +28,7 @@ struct FilterScrollView: View {
                         )
                         .foregroundStyle(.netflixLightGrey)
                         .onTapGesture {
-                            // TODO: Add tap logic for X button
-                            selectedFilter = nil
+                            onPressXMark?()
                         }
                         .transition(AnyTransition.move(edge: .leading))
                         .padding(.leading, 16)
@@ -39,11 +41,7 @@ struct FilterScrollView: View {
                                    isSelected: selectedFilter == filter
                         )
                         .onTapGesture {
-                            if selectedFilter != filter {
-                                selectedFilter = filter
-                            } else {
-                                selectedFilter = nil
-                            }
+                            onSelectFilter?(filter)
                         }
                         .padding(.leading, (selectedFilter == nil && filter == filters.first) ? 16 : 0)
                     }
@@ -56,9 +54,31 @@ struct FilterScrollView: View {
     }
 }
 
+fileprivate struct FilterScrollViewPreview: View {
+    @State private var selectedFilter: FilterModel? = nil
+    private var filters: [FilterModel] = FilterModel.sampleArray
+    
+    var body: some View {
+        FilterScrollView(
+            selectedFilter: selectedFilter,
+            filters: filters,
+            onPressXMark: {
+                selectedFilter = nil
+            },
+            onSelectFilter: { filter in
+                if selectedFilter != filter {
+                    selectedFilter = filter
+                } else {
+                    selectedFilter = nil
+                }
+            }
+        )
+    }
+}
+
 #Preview {
     ZStack {
         Color.black.ignoresSafeArea()
-        FilterScrollView()
+        FilterScrollViewPreview()
     }
 }
