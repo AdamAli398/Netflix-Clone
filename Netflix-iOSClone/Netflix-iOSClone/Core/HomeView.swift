@@ -13,26 +13,32 @@ struct HomeView: View {
             Color.netflixBlack.ignoresSafeArea()
             
             VStack (spacing: 0) {
-                HStack(spacing: 0) {
-                    Text("For You")
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .font(.title)
-                    
-                    HStack(spacing: 16) {
-                        Image(systemName: "tv.badge.wifi")
-                            .onTapGesture {
-                                // TODO: add tap gesture
-                            }
-                        Image(systemName: "magnifyingglass")
-                            .onTapGesture {
-                                // TODO: add tap gesture
-                            }
-                    }
-                    .font(.title2)
-                }
+                header
+                    .padding(.horizontal, 16)
+                Spacer()
             }
         }
         .foregroundStyle(.netflixWhite)
+    }
+    
+    private var header: some View {
+        HStack(spacing: 0) {
+            Text("For You")
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .font(.title)
+            
+            HStack(spacing: 16) {
+                Image(systemName: "tv.badge.wifi")
+                    .onTapGesture {
+                        // TODO: add tap gesture
+                    }
+                Image(systemName: "magnifyingglass")
+                    .onTapGesture {
+                        // TODO: add tap gesture
+                    }
+            }
+            .font(.title2)
+        }
     }
 }
 
