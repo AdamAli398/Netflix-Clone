@@ -15,6 +15,7 @@
 		9AE5AAA22C6DDB95003FEEC3 /* Netflix_iOSCloneUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5AAA12C6DDB95003FEEC3 /* Netflix_iOSCloneUITests.swift */; };
 		9AE5AAA42C6DDB95003FEEC3 /* Netflix_iOSCloneUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5AAA32C6DDB95003FEEC3 /* Netflix_iOSCloneUITestsLaunchTests.swift */; };
 		9AE5AAB32C6DDCDA003FEEC3 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5AAB22C6DDCDA003FEEC3 /* HomeView.swift */; };
+		9AE5AAB52C6DEC41003FEEC3 /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AE5AAB42C6DEC41003FEEC3 /* FilterCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		9AE5AAA12C6DDB95003FEEC3 /* Netflix_iOSCloneUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Netflix_iOSCloneUITests.swift; sourceTree = "<group>"; };
 		9AE5AAA32C6DDB95003FEEC3 /* Netflix_iOSCloneUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Netflix_iOSCloneUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		9AE5AAB22C6DDCDA003FEEC3 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9AE5AAB42C6DEC41003FEEC3 /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 		9AE5AAB12C6DDCBA003FEEC3 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				9AE5AAB42C6DEC41003FEEC3 /* FilterCell.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AE5AAB32C6DDCDA003FEEC3 /* HomeView.swift in Sources */,
+				9AE5AAB52C6DEC41003FEEC3 /* FilterCell.swift in Sources */,
 				9AE5AA892C6DDB93003FEEC3 /* ContentView.swift in Sources */,
 				9AE5AA872C6DDB93003FEEC3 /* Netflix_iOSCloneApp.swift in Sources */,
 			);
