@@ -28,25 +28,31 @@ struct FilterScrollView: View {
                             // TODO: Add tap logic for X button
                             selectedFilter = nil
                         }
+                        .transition(AnyTransition.move(edge: .leading))
+                        .padding(.leading, 16)
                 }
                 
                 ForEach(filters, id: \.self) { filter in
-                    FilterCell(title: filter.title,
-                               isDropdown: filter.isDropdown,
-                               isSelected: selectedFilter == filter
-                    )
-                    .onTapGesture {
-                        if selectedFilter != filter {
-                            selectedFilter = filter
-                        } else {
-                            selectedFilter = nil
+                    if selectedFilter == nil || selectedFilter == filter {
+                        FilterCell(title: filter.title,
+                                   isDropdown: filter.isDropdown,
+                                   isSelected: selectedFilter == filter
+                        )
+                        .onTapGesture {
+                            if selectedFilter != filter {
+                                selectedFilter = filter
+                            } else {
+                                selectedFilter = nil
+                            }
                         }
+                        .padding(.leading, (selectedFilter == nil && filter == filters.first) ? 16 : 0)
                     }
                 }
             }
-            .padding(4)
+            .padding(.vertical, 4)
         }
         .scrollIndicators(.hidden)
+        .animation(.bouncy, value: selectedFilter)
     }
 }
 

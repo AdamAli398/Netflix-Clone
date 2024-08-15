@@ -27,10 +27,9 @@ struct FilterCell: View {
                 Capsule(style: .circular)
                     .stroke(lineWidth: 1)
 
-                if isSelected {
-                    Capsule(style: .circular)
-                        .fill(.netflixDarkGrey)
-                }
+                Capsule(style: .circular)
+                    .fill(.netflixDarkGrey)
+                    .opacity(isSelected ? 1 : 0)
             }
         )
         .foregroundColor(.netflixLightGrey)
