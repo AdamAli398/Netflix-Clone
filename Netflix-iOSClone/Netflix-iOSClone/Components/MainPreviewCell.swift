@@ -9,10 +9,11 @@ import SwiftUI
 import SwiftfulUI
 
 struct MainPreviewCell: View {
-    var imageName: String = ""//Constants.randomImage
+    var imageName: String = Constants.randomImage
     var isNetflixOriginal: Bool = true
+    var isFilm: Bool = true
     var title: String = "Peaky Blinders"
-    var categories: [String] = [
+    var tags: [String] = [
         "Comedy",
         "Thriller",
         "Gritty",
@@ -25,7 +26,7 @@ struct MainPreviewCell: View {
     
     var body: some View {
         ZStack(alignment: .bottom) {
-            ImageLoaderView(urlString: "https://occ-0-8407-999.1.nflxso.net/dnm/api/v6/E8vDc_W8CLv7-yMQu8KMEC7Rrr8/AAAABQr3KP5nDaBi4Q6q1XI2Q9BoptbUfDx4tKls68OKTkFS51hwHO84QdeIXn5jypLB6yoxeVsxz-QRrXEt8khITCfYdYwZgu2p_L4r.jpg?r=07e")
+            ImageLoaderView(urlString: imageName)
             VStack(spacing: 16) {
                 VStack(spacing: 4) {
                     if isNetflixOriginal {
@@ -34,7 +35,7 @@ struct MainPreviewCell: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(maxWidth: 60)
-                            Text("FILM")
+                            Text(isFilm ? "FILM" : "SHOW")
                                 .kerning(7.0)
                                 .font(.title3)
                                 .fontWeight(.semibold)
@@ -43,15 +44,15 @@ struct MainPreviewCell: View {
                         }
                     }
                     
-                    Text("Peaky Blinders")
+                    Text(title)
                         .font(.system(size: 50, weight: .medium, design: .serif))
                         .multilineTextAlignment(.center)
                     
                     HStack(spacing: 4) {
-                        ForEach(categories, id: \.self) { category in
-                            Text(category)
+                        ForEach(tags, id: \.self) { tag in
+                            Text(tag)
                             
-                            if category != categories.last {
+                            if tag != tags.last {
                                 Circle()
                                     .frame(width: 3, height: 3)
                             }
@@ -103,32 +104,6 @@ struct MainPreviewCell: View {
                         endPoint: .bottom)
                 )
             }
-//            Image("PeakyBlinders")
-//                .resizable()
-//                .scaledToFill()
-//            VStack {
-//                Spacer()
-//                HStack {
-//                    Spacer()
-//                    Image("NetflixLogo")
-//                        .resizable()
-//                        .scaledToFit()
-//                        .frame(maxWidth: 70)
-//                    Text("SHOW")
-//                        .foregroundStyle(.netflixLightGrey)
-//                        .fontWeight(.bold)
-//                    Spacer()
-//                }
-//                HStack {
-//                    Text(categories[1])
-//                    Divider()
-//                        .frame(height: 15)
-//                        .foregroundStyle(.netflixLightGrey)
-//                    Text(categories[2])
-//                }
-//                .foregroundStyle(.netflixLightGrey)
-//            }
-//            .frame(maxHeight: 200)
         }
         .aspectRatio(0.8, contentMode: .fit)
 //        .frame(maxWidth: 300)

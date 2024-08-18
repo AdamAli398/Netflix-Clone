@@ -13,19 +13,20 @@ struct ProductArray: Codable {
 }
 
 struct Product: Codable, Identifiable {
-    let id: Int
+    let id: UUID
     let title, description: String
     let category: Category
     let rating: Double
     let tags: [String]
     let reviews: [Review]
-    let minimumOrderQuantity: Int
     let releaseYear: Int
     let images: [String]
     let thumbnail: String
+    let isNetflixOriginal: Bool
+    let isFilm: Bool
 }
 
-enum Category: String, Codable {
+enum Category: String, Codable, CaseIterable {    
     case thriller = "Thriller"
     case comedy = "Comedy"
     case romance = "Romance"
@@ -35,6 +36,6 @@ enum Category: String, Codable {
 struct Review: Codable {
     let rating: Int
     let comment: String
-//    let date: CreatedAt
-    let reviewerName, reviewerEmail: String
+    let date: Date
+    let reviewerName: String
 }
